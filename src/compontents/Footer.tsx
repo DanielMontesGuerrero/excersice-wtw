@@ -1,13 +1,22 @@
+import "./Footer.css";
+import { FaFacebook, FaLinkedin, FaInstagram } from "react-icons/fa";
+
 const Footer = () => {
   return (
-    <footer>
+    <footer className="Footer-container">
       <div>
         <p>wtw</p>
       </div>
-      <div>
-        <a>Facebook</a>
-        <a>LinkedIn</a>
-        <a>Instagram</a>
+      <div className="Footer-icons">
+        <a href="https://www.facebook.com/WTWcorporate">
+          <FaFacebook />
+        </a>
+        <a href="https://www.linkedin.com/company/wtwcorporate">
+          <FaLinkedin />
+        </a>
+        <a href="https://www.instagram.com/wtwcorporate">
+          <FaInstagram />
+        </a>
       </div>
     </footer>
   );

@@ -1,0 +1,30 @@
+.Footer-container {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #2F2C31;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  align-content: center;
+  justify-content: center;
+  gap: 10px;
+  color: white;
+}
+
+.Footer-container p {
+  font-size: calc(10px + 2vmin);
+}
+
+.Footer-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.Footer-icons a {
+  text-decoration: none;
+  color: white;
+}
