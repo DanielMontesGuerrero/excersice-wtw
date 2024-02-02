@@ -1,9 +1,14 @@
+import "./ActuarialModelCalculation.css";
+
 const InputForm = () => {
   return (
-    <div>
-      <input />
-      <input />
-      <input />
+    <div className="InputForm-container">
+      <input placeholder="Capture the main limit" />
+      <input placeholder="Capture the main retention" />
+      <select>
+        <option>Simple</option>
+        <option>Complex</option>
+      </select>
       <button>Calculate</button>
     </div>
   );
@@ -11,7 +16,7 @@ const InputForm = () => {
 
 const ResultTable = () => {
   return (
-    <table>
+    <table className="ResultTable-container">
       <tr>
         <th>Reference date</th>
         <th>Benchmark 1</th>
@@ -22,13 +27,28 @@ const ResultTable = () => {
         <td>22%</td>
         <td>10%</td>
       </tr>
+      <tr className="even">
+        <td>22 jan 2027</td>
+        <td>22%</td>
+        <td>10%</td>
+      </tr>
+      <tr>
+        <td>22 jan 2027</td>
+        <td>22%</td>
+        <td>10%</td>
+      </tr>
+      <tr className="even">
+        <td>22 jan 2027</td>
+        <td>22%</td>
+        <td>10%</td>
+      </tr>
     </table>
   );
 };
 
 const ActuarialModelCalculation = () => {
   return (
-    <div>
+    <div className="ActuarialModelCalculation-container">
       <InputForm />
       <ResultTable />
     </div>

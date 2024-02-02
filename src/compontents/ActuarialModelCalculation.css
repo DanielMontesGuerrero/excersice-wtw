@@ -1,0 +1,53 @@
+.ActuarialModelCalculation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  align-content: center;
+  justify-content: center;
+  margin: 5vh 10vw;
+}
+
+.InputForm-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-evenly;
+}
+
+.InputForm-container input, select {
+  background-color: #48086F;
+  color: white;
+  padding: 1em;
+  min-width: 20vw;
+}
+
+.InputForm-container input::placeholder {
+  color: #CACACA;
+}
+
+.InputForm-container button {
+  background-color: white;
+  border-color: #D124B8;
+  color: #D124B8;
+  border-radius: 20px;
+  min-width: 10vw;
+}
+
+.ResultTable-container {
+  margin: 5vh 0vw;
+  border-color: white;
+}
+
+.ResultTable-container th {
+  background-color: #D15175;
+  color: white;
+  padding: 1em;
+}
+
+.ResultTable-container td {
+  padding: 1em;
+}
+
+.ResultTable-container .even td {
+  background-color: #DEDEDE;
+}
