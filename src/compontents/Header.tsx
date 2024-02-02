@@ -1,9 +1,9 @@
-import React from "react";
+import "./Header.css";
 
 const Header = () => {
   return (
-    <header>
-      <p>wtw</p>
+    <header className="Header-container">
+      <a href="https://www.wtwco.com/es-mx">wtw</a>
     </header>
   );
 };

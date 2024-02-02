@@ -1,0 +1,16 @@
+.Header-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: start;
+  font-size: calc(20px + 2vmin);
+  padding: 1vh 10vw;
+  border-bottom: solid;
+  border-bottom-color: #B5B5B5;
+  border-bottom-width: 3px;
+}
+
+.Header-container a {
+  color: #7F35B2;
+  text-decoration: none;
+}
