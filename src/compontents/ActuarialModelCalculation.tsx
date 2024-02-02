@@ -41,9 +41,8 @@ const InputForm = ({ onCalculateTriggered }: InputFormProps) => {
       errors.push("Please select the execution type");
     }
 
-    if (errors.length > 0) {
-      setErrorList(errors);
-    } else {
+    setErrorList(errors);
+    if (errors.length === 0) {
       onCalculateTriggered({
         mainLimit: mainLimitNum,
         mainRetention: mainRetentionNum,
@@ -107,9 +106,18 @@ const ResultTable = ({ data }: ResultTableProps) => {
   }
 
   const rows = data?.results.map((item, index) => {
+    const day = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(
+      item.date,
+    );
+    const month = new Intl.DateTimeFormat("en", { month: "short" }).format(
+      item.date,
+    );
+    const year = new Intl.DateTimeFormat("en", { year: "numeric" }).format(
+      item.date,
+    );
     return (
       <tr className={index % 2 === 0 ? "even" : ""} key={`result-${index}`}>
-        <td>{item.date.toDateString()}</td>
+        <td>{`${day} ${month} ${year}`}</td>
         <td>{`${item.benchmarks[0].toFixed(2)}%`}</td>
         <td>{`${item.benchmarks[1].toFixed(2)}%`}</td>
       </tr>
