@@ -33,6 +33,10 @@
   min-width: 10vw;
 }
 
+.InputForm-container button:hover {
+  cursor: pointer;
+}
+
 .ResultTable-container {
   margin: 5vh 0vw;
   border-color: white;
@@ -69,4 +73,30 @@
 
 .Errors-container .error {
   margin-inline-start: 20px;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .Loading-spinner {
+    animation: Loading-spinner-spin infinite 1s linear;
+  }
+}
+
+.Loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  height: 50vh;
+}
+
+
+@keyframes Loading-spinner-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

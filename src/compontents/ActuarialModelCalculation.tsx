@@ -6,6 +6,7 @@ import {
   ExecutionTypes,
 } from "../types/ActuarialModelPayload";
 import "./ActuarialModelCalculation.css";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 interface InputFormProps {
   onCalculateTriggered: (payload: ActuarialModelPayload) => void;
@@ -24,16 +25,16 @@ const InputForm = ({ onCalculateTriggered }: InputFormProps) => {
 
     if (mainLimit.length === 0) {
       errors.push("Please capture the main limit");
-    } else if (mainLimitNum < 0) {
-      errors.push("Main retention can not be negative");
+    } else if (mainLimitNum <= 0) {
+      errors.push("Main retention must be greater than 0");
     } else if (isNaN(mainLimitNum)) {
       errors.push("Main retention must be a number");
     }
 
     if (mainRetention.length === 0) {
       errors.push("Please capture the main limit");
-    } else if (mainRetentionNum < 0) {
-      errors.push("Main retention can not be negative");
+    } else if (mainRetentionNum <= 0) {
+      errors.push("Main retention must be greater than 0");
     } else if (isNaN(mainRetentionNum)) {
       errors.push("Main retention must be a number");
     }
@@ -138,18 +139,30 @@ const ResultTable = ({ data }: ResultTableProps) => {
 };
 
 const ActuarialModelCalculation = () => {
+  const TIME_DELAY = 3000;
   const [result, setResult] = useState<
     ActuarialModelCalculationResponse | undefined
   >(undefined);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const onCalculate = (payload: ActuarialModelPayload) => {
-    setResult(postActuarialModelCalculation(payload));
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setResult(postActuarialModelCalculation(payload));
+    }, TIME_DELAY);
   };
 
   return (
     <div className="ActuarialModelCalculation-container">
       <InputForm onCalculateTriggered={(payload) => onCalculate(payload)} />
-      <ResultTable data={result} />
+      {isLoading ? (
+        <div className="Loading-spinner">
+          <AiOutlineLoading3Quarters size={50} />
+        </div>
+      ) : (
+        <ResultTable data={result} />
+      )}
     </div>
   );
 };
